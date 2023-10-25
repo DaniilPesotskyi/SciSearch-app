@@ -8,6 +8,7 @@
   --main-bg-clr: #f6f6f7;
   --header-bg-clr: #fcfcfc;
   --secondary-bg-clr: #ffffff;
+  --secondary-hovered-bg-clr: #fafafa;
 
   --main-text-clr: #161616;
   --secondary-text-clr: rgba(0, 0, 0, 0.5);
@@ -15,11 +16,18 @@
   --disabled-item-clr: rgba(22, 22, 22, 0.7);
 
   --main-icons-clr: rgba(22, 22, 22, 0.8);
+  --main-icons-hovered-clr: rgba(22, 22, 22);
+  
   --primary-clr: #bedbb0;
+  --primary-hovered-clr: #9ec08c;
+
+  --red-clr: #dbb0b0;
+  --red-hovered-clr: rgb(212, 125, 125);
 
   /* OTHER */
   --border-radius: 10px;
   --box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+  --transition-duration: 250ms;
 }
 
 /* @media (prefers-color-scheme: dark) {

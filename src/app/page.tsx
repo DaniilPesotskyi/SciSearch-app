@@ -14,22 +14,46 @@ export default function Home() {
         <p className={css.qnt}>Було знайдено 14 формул</p>
         <ul className={css.list}>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
           <li className={css.item}>
-            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
+            <FormulaCard
+              symbols={["F", "m"]}
+              name="Другий закон Ньютона"
+              formula="a=F/m"
+            />
           </li>
         </ul>
       </Container>

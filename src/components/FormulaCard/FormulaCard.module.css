@@ -1,9 +1,22 @@
 .wrap {
-  width: 100%;
-  padding: 10px;
-
+  height: fit-content;
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.wrap:hover {
+  background-color: var(--secondary-hovered-bg-clr);
+}
+
+.wrap.open {
+  box-shadow: var(--box-shadow);
+}
+
+.card {
+  width: 100%;
+  padding: 10px;
 }
 
 .name {
@@ -52,10 +65,22 @@
 
 .copyText {
   display: none;
+  transition: all var(--transition-duration);
 }
 
 .icon {
   flex-shrink: 0;
+  fill: var(--main-icons-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.copyBtn:hover .icon {
+  fill: var(--main-icons-hovered-clr);
+}
+
+.copyBtn:hover .copyText {
+  color: var(--main-icons-hovered-clr);
 }
 
 .mathBtn {
@@ -73,10 +98,26 @@
   font-size: 12px;
   font-style: normal;
   line-height: normal;
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.mathBtn:hover {
+  background-color: var(--primary-hovered-clr);
+}
+
+.mathBtn.open {
+  background-color: var(--red-clr);
+}
+
+.mathBtn.open:hover {
+  background-color: var(--red-hovered-clr);
 }
 
 @media screen and (min-width: 480px) {
-  .wrap {
+  .card {
     display: flex;
     justify-content: space-between;
 
@@ -101,7 +142,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .wrap {
+  .card {
     padding: 10px 10px 10px 20px;
     align-items: center;
   }
@@ -136,6 +177,92 @@
     font-size: 15px;
     font-style: normal;
     line-height: normal;
-    color: var(--main-text-clr);
+    color: var(--main-icons-clr);
+  }
+}
+
+/* MATH */
+
+.mathWrap {
+  padding: 10px;
+}
+
+.mathList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px 15px;
+
+  margin-bottom: 30px;
+}
+
+.mathItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mathLabel {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--main-text-clr);
+}
+
+.mathInput {
+  width: 90px;
+  height: 35px;
+  padding: 0px 5px;
+
+  background-color: transparent;
+  border: 1px solid var(--main-icons-clr);
+  border-radius: var(--border-radius);
+  outline: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  text-align: center;
+  color: var(--main-text-clr);
+}
+
+.mathResultWrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.mathResultBtn {
+  padding: 10px 15px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: #e1e1e1;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: normal;
+
+  cursor: pointer;
+}
+
+.mathResult {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+}
+
+@media screen and (min-width: 480px) {
+  .mathWrap {
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mathWrap {
+    padding: 10px 10px 10px 20px;
   }
 }
