@@ -1,0 +1,139 @@
+.wrap {
+  width: 100%;
+  padding: 10px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+}
+
+.name {
+  margin-bottom: 10px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  line-height: normal;
+  color: var(--main-text-clr);
+  text-align: center;
+}
+
+.formula {
+  margin-bottom: 20px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+  color: var(--main-text-clr);
+}
+
+.actionsBtns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: 0;
+  background-color: transparent;
+}
+
+.copyText {
+  display: none;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.mathBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 20px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-clr);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+}
+
+@media screen and (min-width: 480px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+  }
+
+  .name {
+    margin-bottom: 0px;
+  }
+
+  .formula {
+    text-align: right;
+  }
+
+  .actionsBtns {
+    gap: 20px;
+  }
+
+  .mathBtn {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    padding: 10px 10px 10px 20px;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 17px;
+  }
+
+  .formulaActionsWrap {
+    display: flex;
+    align-items: center;
+    gap: 110px;
+  }
+
+  .formula {
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .copyBtn {
+    width: fit-content;
+    height: fit-content;
+    gap: 5px;
+  }
+
+  .copyText {
+    display: block;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    line-height: normal;
+  }
+}
