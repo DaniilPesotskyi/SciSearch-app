@@ -11,6 +11,7 @@
 
   font-family: "Roboto", sans-serif;
   font-size: 15px;
+  font-weight: 400;
   font-style: normal;
   line-height: normal;
   color: var(--main-text-clr);
@@ -135,5 +136,6 @@
     font-size: 15px;
     font-style: normal;
     line-height: normal;
+    color: var(--main-text-clr);
   }
 }
