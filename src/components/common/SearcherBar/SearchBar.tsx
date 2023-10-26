@@ -53,22 +53,26 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
         <AddIcon className={clsx(css.addIcon, isAddModalOpen && css.open)} />
       </button>
       <ul className={css.list}>
-        {filters.length > 0 ? filters?.map((l) => {
-          return (
-            <li key={l}>
-              <button
-                type="button"
-                className={css.filterBtn}
-                onClick={() => onFilterDelete(l)}
-              >
-                {l}
-              </button>
-            </li>
-          );
-        }): <p className={css.altText}>Додайте хоча б один елемент</p>}
+        {filters.length > 0 ? (
+          filters?.map((l) => {
+            return (
+              <li key={l}>
+                <button
+                  type="button"
+                  className={css.filterBtn}
+                  onClick={() => onFilterDelete(l)}
+                >
+                  {l}
+                </button>
+              </li>
+            );
+          })
+        ) : (
+          <p className={css.altText}>Додайте хоча б один елемент</p>
+        )}
       </ul>
       <button className={css.clearBtn} type="button">
-        <TrashIcon className={css.clearIcon}/>
+        <TrashIcon className={css.clearIcon} />
       </button>
       {isAddModalOpen && onAddWordsModalRender()}
     </div>
