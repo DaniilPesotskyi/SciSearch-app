@@ -1,4 +1,4 @@
-const getLetters = (formulas: string[] | string) => {
+const getLetters = (formulas: string[] | string): string[] => {
   const letters: Set<string> = new Set();
 
   if (Array.isArray(formulas)) {
@@ -26,6 +26,8 @@ const getLetters = (formulas: string[] | string) => {
     });
     return Array.from(letters);
   }
+
+  return [];
 };
 
 export default getLetters;
