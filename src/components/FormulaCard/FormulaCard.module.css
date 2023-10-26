@@ -184,7 +184,9 @@
 /* MATH */
 
 .mathWrap {
-  padding: 10px;
+  padding: 30px 20px 20px 20px;
+
+  /* border-top: 1px solid var(--main-icons-clr); */
 }
 
 .mathList {
@@ -217,8 +219,8 @@
   padding: 0px 5px;
 
   background-color: transparent;
-  border: 1px solid var(--main-icons-clr);
-  border-radius: var(--border-radius);
+  border: 0;
+  border-bottom: 1px solid var(--main-icons-clr);
   outline: 0;
 
   font-family: "Roboto", sans-serif;
@@ -226,6 +228,12 @@
   font-style: normal;
   text-align: center;
   color: var(--main-text-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.mathInput:focus {
+  border-bottom-color: var(--primary-hovered-clr);
 }
 
 .mathResultWrap {
@@ -242,7 +250,7 @@
   background-color: #e1e1e1;
 
   font-family: "Roboto", sans-serif;
-  font-size: 17px;
+  font-size: 12px;
   font-style: normal;
   line-height: normal;
 
@@ -259,10 +267,20 @@
   .mathWrap {
     padding: 20px;
   }
+  
+  .mathResultBtn {
+    font-size: 17px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .mathWrap {
-    padding: 10px 10px 10px 20px;
+    padding: 20px 10px 10px 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .mathWrap {
+    padding: 20px;
   }
 }

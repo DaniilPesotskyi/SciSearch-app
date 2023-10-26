@@ -15,7 +15,7 @@ export default function Home() {
         <ul className={css.list}>
           <li className={css.item}>
             <FormulaCard
-              symbols={["F", "m"]}
+              symbols={["F", "m", 'c', 'r']}
               name="Другий закон Ньютона"
               formula="a=F/m"
             />

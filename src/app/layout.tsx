@@ -1,8 +1,10 @@
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import type { Metadata } from "next";
 import { Open_Sans, Roboto } from "next/font/google";
 import clsx from "clsx";
+import { ToastContainer } from "react-toastify";
 
 import Header from "@/components/Header/Header";
 
@@ -33,6 +35,7 @@ export default function RootLayout({
       <body className={clsx(roboto.className, openSans.className)}>
         <Header />
         {children}
+        <ToastContainer position="top-center"/>
       </body>
     </html>
   );

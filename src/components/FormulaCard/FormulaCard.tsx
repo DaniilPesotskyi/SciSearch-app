@@ -1,9 +1,10 @@
 "use client";
 
-import clsx from "clsx";
 import css from "./FormulaCard.module.css";
 
+import clsx from "clsx";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface IProps {
   name: string;
@@ -19,12 +20,18 @@ const FormulaCard: React.FC<IProps> = ({ name, formula, symbols }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setInputValues({ ...inputValues, [name]: value });
   };
 
   const handleMath = () => {
-    console.log('Values: ',inputValues);
-    console.log('Formula: ',formula);
+    const isFilled = symbols.every((s) => inputValues[s]);
+    if (isFilled) {
+      console.log("Values: ", inputValues);
+      console.log("Formula: ", formula);
+      return;
+    }
+    toast.error("Всі необхідні поля мають бути заповнені");
   };
 
   const onMathRender = () => {
@@ -37,10 +44,11 @@ const FormulaCard: React.FC<IProps> = ({ name, formula, symbols }) => {
                 {s} =
               </label>
               <input
+                autoComplete="off"
                 name={s}
                 id={s}
                 className={css.mathInput}
-                type="text"
+                type="number"
                 onChange={handleInputChange}
               />
             </li>
@@ -71,8 +79,14 @@ const FormulaCard: React.FC<IProps> = ({ name, formula, symbols }) => {
               <span className={css.copyText}>Копіювати</span>
               <CopyIcon className={css.icon} />
             </button>
-            <button className={clsx(css.mathBtn, isOpen && css.open)} onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? 'Закрити' : 'Використати'}
+            <button
+              className={clsx(css.mathBtn, isOpen && css.open)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setInputValues({});
+              }}
+            >
+              {isOpen ? "Закрити" : "Використати"}
             </button>
           </div>
         </div>
@@ -92,9 +106,7 @@ function CopyIcon({ className }: { className?: string }) {
       width="18"
       height="18"
     >
-      <path
-        d="M12.938 4.781H2.812a.281.281 0 00-.28.282v10.125a.281.281 0 00.28.28h10.126a.282.282 0 00.28-.28V5.062a.281.281 0 00-.28-.28zm-.282 10.125H3.094V5.344h9.562v9.562zM15.47 2.812v10.126a.282.282 0 01-.563 0V3.094H5.062a.281.281 0 110-.563h10.125a.281.281 0 01.282.281z"
-      ></path>
+      <path d="M12.938 4.781H2.812a.281.281 0 00-.28.282v10.125a.281.281 0 00.28.28h10.126a.282.282 0 00.28-.28V5.062a.281.281 0 00-.28-.28zm-.282 10.125H3.094V5.344h9.562v9.562zM15.47 2.812v10.126a.282.282 0 01-.563 0V3.094H5.062a.281.281 0 110-.563h10.125a.281.281 0 01.282.281z"></path>
     </svg>
   );
 }
