@@ -6,7 +6,7 @@ import { Open_Sans, Roboto } from "next/font/google";
 import clsx from "clsx";
 import { ToastContainer } from "react-toastify";
 
-import Header from "@/components/Header/Header";
+import Header from "@/components/common/Header/Header";
 
 const roboto = Roboto({
   weight: ["300", "400"],
@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className={clsx(roboto.className, openSans.className)}>
         <Header />
         {children}
-        <ToastContainer position="top-center"/>
+        <ToastContainer position="top-center" />
       </body>
     </html>
   );
