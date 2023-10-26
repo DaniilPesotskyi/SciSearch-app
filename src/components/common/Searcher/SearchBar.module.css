@@ -1,0 +1,157 @@
+.wrap {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid var(--main-icons-clr);
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 35px;
+  height: 35px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.addBtn:hover {
+  background-color: var(--primary-hovered-clr);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 35px;
+  padding: 0px 10px;
+  margin: 0px 10px;
+
+  border-left: 1px solid var(--main-icons-clr);
+  border-right: 1px solid var(--main-icons-clr);
+
+  overflow-x: scroll;
+}
+
+.list::-webkit-scrollbar {
+  width: 100%;
+  height: 1px;
+}
+.list::-webkit-scrollbar-thumb {
+  width: 4px;
+  height: 1px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--main-icons-clr);
+}
+
+.filterBtn {
+  min-width: 35px;
+  height: 35px;
+
+  padding: 0px 8px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: normal;
+  color: var(--main-text-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.filterBtn:hover {
+  background-color: var(--secondary-hovered-bg-clr);
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 35px;
+  height: 35px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--red-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    margin-bottom: 40px;
+  }
+
+  .addBtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .filterBtn {
+    min-height: 40px;
+    min-width: 40px;
+
+    font-size: 20px;
+  }
+
+  .clearBtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .list {
+    padding: 0px 20px;
+    margin: 0px 20px;
+  }
+}
+
+/* ADD MODAL */
+
+.addFilterWrap {
+  position: absolute;
+  left: 0;
+  top: 85%;
+
+  width: 100%;
+  padding: 15px;
+
+  border: 1px solid var(--primary-clr);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+}
+
+.addFilterList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px 15px;
+}

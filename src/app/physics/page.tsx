@@ -11,7 +11,7 @@ export default function PhysicsPage() {
         <h1 className={css.title}>
           За якими даними вам потрібно знайти формулу?
         </h1>
-        <SearchBar />
+        <SearchBar formulas={["a=F/m", "d=c/m", "b=F/m"]} />
         <p className={css.qnt}>Було знайдено 14 формул</p>
         <ul className={css.list}>
           <li className={css.item}>

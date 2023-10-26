@@ -1,17 +1,72 @@
+"use client";
+
 import css from "./SearchBar.module.css";
 
-const SearchBar: React.FC = () => {
-  const getAvalaibleWords = (formulas: Array<string>) => {};
+import { useState } from "react";
+import clsx from "clsx";
+
+import { getLetters } from "@/helpers";
+
+const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
+  const [filters, setFilters] = useState<string[]>([]);
+
+  const avalaibleLetters = getLetters(formulas).filter(
+    (letter) => !filters.includes(letter)
+  );
+
+  const onFilterDelete = (l: string) => {
+    setFilters(filters.filter((letter) => letter !== l));
+  };
+
+  const onAddWordsModalRender = () => {
+    return (
+      <div className={css.addFilterWrap}>
+        <ul className={css.addFilterList}>
+          {avalaibleLetters.map((l) => (
+            <li key={l}>
+              <button
+                type="button"
+                className={css.filterBtn}
+                onClick={() => setFilters([...filters, l])}
+              >
+                {l}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <div className={css.wrap}>
-      <button className={css.addBtn} type="button">
-        <AddIcon />
+      <button
+        className={css.addBtn}
+        type="button"
+        onClick={() => setIsAddModalOpen(!isAddModalOpen)}
+      >
+        <AddIcon className={css.icon} />
       </button>
-      <ul className={css.list}></ul>
+      <ul className={css.list}>
+        {filters?.map((l) => {
+          return (
+            <li key={l}>
+              <button
+                type="button"
+                className={css.filterBtn}
+                onClick={() => onFilterDelete(l)}
+              >
+                {l}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
       <button className={css.clearBtn} type="button">
         <TrashIcon />
       </button>
+      {isAddModalOpen && onAddWordsModalRender()}
     </div>
   );
 };
