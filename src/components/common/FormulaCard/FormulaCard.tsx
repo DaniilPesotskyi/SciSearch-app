@@ -6,17 +6,20 @@ import clsx from "clsx";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
+import { getLetters } from "@/helpers";
+
 interface IProps {
   name: string;
   formula: string;
-  symbols: Array<string>;
 }
 
-const FormulaCard: React.FC<IProps> = ({ name, formula, symbols }) => {
+const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [inputValues, setInputValues] = useState<{ [name: string]: string }>(
     {}
   );
+
+  const symbols = getLetters(formula);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

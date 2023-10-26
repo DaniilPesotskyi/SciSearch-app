@@ -10,6 +10,12 @@
   border-bottom: 1px solid var(--main-icons-clr);
 }
 
+.altText {
+  padding: 9px;
+
+  color: var(--secondary-text-clr);
+}
+
 .addBtn {
   display: flex;
   align-items: center;
@@ -30,6 +36,19 @@
 
 .addBtn:hover {
   background-color: var(--primary-hovered-clr);
+}
+
+.addBtn.open {
+  background-color: var(--red-clr);
+}
+
+.addIcon {
+  fill: var(--main-icons-clr);
+  transition: all var(--transition-duration);
+}
+
+.addIcon.open {
+  transform: rotate(45deg);
 }
 
 .list {
@@ -103,6 +122,15 @@
   transition: all var(--transition-duration);
 }
 
+.clearBtn:hover {
+  background-color: var(--red-hovered-clr);
+}
+
+.clearIcon {
+  fill: transparent;
+  stroke: var(--main-icons-clr);
+}
+
 @media screen and (min-width: 480px) {
 }
 
@@ -146,7 +174,7 @@
 
   border: 1px solid var(--primary-clr);
   border-radius: var(--border-radius);
-  background-color: var(--secondary-bg-clr);
+  background-color: var(--modal-bg-clr);
 }
 
 .addFilterList {

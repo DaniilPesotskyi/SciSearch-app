@@ -2,7 +2,7 @@ import css from "./page.module.css";
 
 import FormulaCard from "@/components/common/FormulaCard/FormulaCard";
 import Container from "@/components/common/Container/Container";
-import SearchBar from "@/components/common/Searcher/SearchBar";
+import SearchBar from "@/components/common/SearcherBar/SearchBar";
 
 export default function PhysicsPage() {
   return (
@@ -15,46 +15,22 @@ export default function PhysicsPage() {
         <p className={css.qnt}>Було знайдено 14 формул</p>
         <ul className={css.list}>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m", "c", "r"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="a=F+m" />
           </li>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="a=3/k" />
           </li>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
           </li>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="f=F*m*3" />
           </li>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="c=D/K*R+E" />
           </li>
           <li className={css.item}>
-            <FormulaCard
-              symbols={["F", "m"]}
-              name="Другий закон Ньютона"
-              formula="a=F/m"
-            />
+            <FormulaCard name="Другий закон Ньютона" formula="a=F/m+G" />
           </li>
         </ul>
       </Container>

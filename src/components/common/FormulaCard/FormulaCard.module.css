@@ -234,6 +234,7 @@
 
 .mathInput:focus {
   border-bottom-color: var(--primary-hovered-clr);
+  background-color: var(--secondary-bg-clr);
 }
 
 .mathResultWrap {
@@ -267,7 +268,7 @@
   .mathWrap {
     padding: 20px;
   }
-  
+
   .mathResultBtn {
     font-size: 17px;
   }

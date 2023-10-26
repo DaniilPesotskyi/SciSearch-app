@@ -7,8 +7,10 @@
   /* COLORS */
   --main-bg-clr: #f6f6f7;
   --header-bg-clr: #fcfcfc;
+  --modal-bg-clr: #fcfcfc;
+
   --secondary-bg-clr: #ffffff;
-  --secondary-hovered-bg-clr: #fafafa;
+  --secondary-hovered-bg-clr: #f9f9f9;
 
   --main-text-clr: #161616;
   --secondary-text-clr: rgba(0, 0, 0, 0.5);
@@ -17,7 +19,7 @@
 
   --main-icons-clr: rgba(22, 22, 22, 0.8);
   --main-icons-hovered-clr: rgba(22, 22, 22);
-  
+
   --primary-clr: #bedbb0;
   --primary-hovered-clr: #9ec08c;
 

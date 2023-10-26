@@ -23,17 +23,21 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
     return (
       <div className={css.addFilterWrap}>
         <ul className={css.addFilterList}>
-          {avalaibleLetters.map((l) => (
-            <li key={l}>
-              <button
-                type="button"
-                className={css.filterBtn}
-                onClick={() => setFilters([...filters, l])}
-              >
-                {l}
-              </button>
-            </li>
-          ))}
+          {avalaibleLetters.length > 0 ? (
+            avalaibleLetters.map((l) => (
+              <li key={l}>
+                <button
+                  type="button"
+                  className={css.filterBtn}
+                  onClick={() => setFilters([...filters, l])}
+                >
+                  {l}
+                </button>
+              </li>
+            ))
+          ) : (
+            <p className={css.altText}>Доступних елементів немає</p>
+          )}
         </ul>
       </div>
     );
@@ -42,14 +46,14 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
   return (
     <div className={css.wrap}>
       <button
-        className={css.addBtn}
+        className={clsx(css.addBtn, isAddModalOpen && css.open)}
         type="button"
         onClick={() => setIsAddModalOpen(!isAddModalOpen)}
       >
-        <AddIcon className={css.icon} />
+        <AddIcon className={clsx(css.addIcon, isAddModalOpen && css.open)} />
       </button>
       <ul className={css.list}>
-        {filters?.map((l) => {
+        {filters.length > 0 ? filters?.map((l) => {
           return (
             <li key={l}>
               <button
@@ -61,10 +65,10 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
               </button>
             </li>
           );
-        })}
+        }): <p className={css.altText}>Додайте хоча б один елемент</p>}
       </ul>
       <button className={css.clearBtn} type="button">
-        <TrashIcon />
+        <TrashIcon className={css.clearIcon}/>
       </button>
       {isAddModalOpen && onAddWordsModalRender()}
     </div>
