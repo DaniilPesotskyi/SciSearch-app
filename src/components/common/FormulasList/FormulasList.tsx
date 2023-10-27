@@ -17,13 +17,16 @@ const FormulasList: React.FC<IProps> = ({}) => {
   const formulasToRender = filterFormulas(filters, formulas);
 
   return (
-    <ul className={css.list}>
-      {formulasToRender.map((f) => (
-        <li key={f.name}>
-          <FormulaCard name={f.name} formula={f.formula} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <p className={css.qnt}>Було знайдено {formulasToRender.length} формул</p>
+      <ul className={css.list}>
+        {formulasToRender.map((f) => (
+          <li key={f.name}>
+            <FormulaCard name={f.name} formula={f.formula} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 

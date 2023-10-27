@@ -6,17 +6,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import clsx from "clsx";
 
+import { formulas } from "@/api/formulas";
+
 import { getLetters } from "@/helpers";
 import { selectFilter } from "@/redux/filter/selectors";
 import { addFilter, removeFilter } from "@/redux/filter/filterSlice";
 
-const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
+const SearchBar: React.FC = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
-
   const filters = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  const avalaibleLetters = getLetters(formulas).filter(
+  const getFormulas = (): string[] => {
+    const resultFormulas: string[] = [];
+    formulas.forEach((el) => {
+      resultFormulas.push(el.formula);
+    });
+
+    return resultFormulas;
+  };
+
+  const avalaibleLetters = getLetters(getFormulas()).filter(
     (letter) => !filters.includes(letter)
   );
 

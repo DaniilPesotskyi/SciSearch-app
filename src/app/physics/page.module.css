@@ -10,24 +10,9 @@
   color: var(--main-text-clr);
 }
 
-.qnt {
-  margin-bottom: 20px;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  color: var(--secondary-text-clr);
-}
-
 @media screen and (min-width: 480px) {
   .title {
     font-size: 26px;
-  }
-
-  .qnt {
-    margin-bottom: 25px;
   }
 }
 
@@ -35,10 +20,6 @@
   .title {
     font-size: 32px;
     margin-bottom: 40px;
-  }
-
-  .qnt {
-    margin-bottom: 35px;
   }
 }
 

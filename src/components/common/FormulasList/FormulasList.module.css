@@ -3,3 +3,26 @@
   flex-direction: column;
   gap: 15px;
 }
+
+.qnt {
+  margin-bottom: 20px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: var(--secondary-text-clr);
+}
+
+@media screen and (min-width: 480px) {
+  .qnt {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .qnt {
+    margin-bottom: 35px;
+  }
+}
