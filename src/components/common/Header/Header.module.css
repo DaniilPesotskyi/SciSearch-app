@@ -22,19 +22,23 @@
   justify-content: space-between;
 }
 
-.logo {
-}
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 
-.nav {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--main-text-clr);
 }
 
 .navList {
   display: flex;
   align-items: center;
   gap: 30px;
-}
-
-.navItem {
 }
 
 .navLink {

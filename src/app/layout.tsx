@@ -40,8 +40,8 @@ export default function RootLayout({
           <Header />
           {children}
           <ToastContainer position="top-center" />
+          <ScrollToTopButton />
         </body>
-        <ScrollToTopButton />
       </html>
     </Providers>
   );

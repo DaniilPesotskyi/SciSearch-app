@@ -1,26 +1,39 @@
+"use client";
+
 import css from "./Header.module.css";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 import Container from "../Container/Container";
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+
+  const onPathnameFormat = (p: string): string => {
+    const path = p.substring(1);
+
+    switch (path) {
+      case "physics":
+        return "Фізика";
+      default:
+        return "";
+    }
+  };
+
   return (
     <header className={css.header}>
       <Container className={css.container}>
-        <Link href={"/"}>
+        <Link href={"/"} className={css.logoWrap}>
           <LogoIcon className={css.logo} />
+          {onPathnameFormat(pathname)}
         </Link>
         <nav className={css.nav}>
           <ul className={css.navList}>
             <li className={css.navItem}>
               <Link href={"/"} className={css.navLink}>
                 Про SciSearch
-              </Link>
-            </li>
-            <li className={css.navItem}>
-              <Link href={"/"} className={css.navLink}>
-                Автори
               </Link>
             </li>
           </ul>
