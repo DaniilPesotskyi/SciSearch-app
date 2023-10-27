@@ -18,7 +18,7 @@ const roboto = Roboto({
 });
 
 const openSans = Open_Sans({
-  weight: ["500"],
+  weight: ["500", "600"],
   style: "normal",
   subsets: ["cyrillic", "cyrillic-ext"],
 });
