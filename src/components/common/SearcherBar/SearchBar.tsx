@@ -5,6 +5,7 @@ import css from "./SearchBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 import { formulas } from "@/api/formulas";
 
@@ -36,7 +37,12 @@ const SearchBar: React.FC = () => {
 
   const onAddWordsModalRender = () => {
     return (
-      <div className={css.addFilterWrap}>
+      <motion.div
+        className={css.addFilterWrap}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.1, ease: 'easeInOut' }}
+        animate={{opacity: 1}}
+      >
         <ul className={css.addFilterList}>
           {avalaibleLetters.length > 0 ? (
             avalaibleLetters.map((l) => (
@@ -54,7 +60,7 @@ const SearchBar: React.FC = () => {
             <p className={css.altText}>Доступних елементів немає</p>
           )}
         </ul>
-      </div>
+      </motion.div>
     );
   };
 

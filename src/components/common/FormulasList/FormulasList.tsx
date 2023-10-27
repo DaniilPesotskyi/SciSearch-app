@@ -3,6 +3,8 @@
 import css from "./FormulasList.module.css";
 
 import { formulas } from "@/api/formulas";
+
+import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 import FormulaCard from "../FormulaCard/FormulaCard";
@@ -19,15 +21,40 @@ const FormulasList: React.FC<IProps> = ({}) => {
 
   const formulasToRender = filterFormulas(filters, formulas);
 
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { x: 20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <>
       <p className={css.qnt}>Було знайдено {formulasToRender.length} формул</p>
-      <ul className={css.list}>
+      <motion.ul className={css.list} variants={container}>
         {formulasToRender.length > 0 ? (
           formulasToRender.map((f) => (
-            <li key={f.name}>
+            <motion.li
+              key={f.name}
+              variants={item}
+              initial="hidden"
+              animate="visible"
+            >
               <FormulaCard name={f.name} formula={f.formula} />
-            </li>
+            </motion.li>
           ))
         ) : (
           <div className={css.noRenderWrap}>
@@ -37,12 +64,10 @@ const FormulasList: React.FC<IProps> = ({}) => {
               height={BooksImage.height}
               alt="books image"
             />
-            <p className={css.noRenderText}>
-              Оберіть елементи для пошуку
-            </p>
+            <p className={css.noRenderText}>Оберіть елементи для пошуку</p>
           </div>
         )}
-      </ul>
+      </motion.ul>
     </>
   );
 };
