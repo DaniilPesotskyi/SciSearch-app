@@ -1,30 +1,28 @@
+"use client";
+
 import css from "./FormulasList.module.css";
 
+import { useSelector } from "react-redux";
+
 import FormulaCard from "../FormulaCard/FormulaCard";
+import { filterFormulas } from "@/helpers";
+import { selectFilter } from "@/redux/filter/selectors";
+import { formulas } from "@/api/formulas";
 
 interface IProps {}
 
 const FormulasList: React.FC<IProps> = ({}) => {
+  const filters = useSelector(selectFilter);
+
+  const formulasToRender = filterFormulas(filters, formulas);
+
   return (
     <ul className={css.list}>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="a=F+m" />
-      </li>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="a=3/k" />
-      </li>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="a=F/m" />
-      </li>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="f=F*m*3" />
-      </li>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="c=D/K*R+E" />
-      </li>
-      <li className={css.item}>
-        <FormulaCard name="Другий закон Ньютона" formula="a=F/m+G" />
-      </li>
+      {formulasToRender.map((f) => (
+        <li key={f.name}>
+          <FormulaCard name={f.name} formula={f.formula} />
+        </li>
+      ))}
     </ul>
   );
 };
