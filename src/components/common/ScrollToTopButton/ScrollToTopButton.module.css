@@ -1,0 +1,24 @@
+.btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--main-icons-clr);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+
+  transition: all var(--transition-duration);
+
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}

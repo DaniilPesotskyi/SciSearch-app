@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { ToastContainer } from "react-toastify";
 
 import Header from "@/components/common/Header/Header";
+import ScrollToTopButton from "@/components/common/ScrollToTopButton/ScrollToTopButton";
 
 import { Providers } from "@/redux/Providers";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
           {children}
           <ToastContainer position="top-center" />
         </body>
+        <ScrollToTopButton />
       </html>
     </Providers>
   );
