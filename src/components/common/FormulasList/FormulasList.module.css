@@ -26,3 +26,19 @@
     margin-bottom: 35px;
   }
 }
+
+/* NOTHING TO RENDER */
+
+.noRenderWrap {
+  margin: 0 auto;
+}
+
+.noRenderText {
+  width: 250px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
