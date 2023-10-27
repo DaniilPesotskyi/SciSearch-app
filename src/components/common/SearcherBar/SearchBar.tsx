@@ -10,7 +10,11 @@ import { formulas } from "@/api/formulas";
 
 import { getLetters } from "@/helpers";
 import { selectFilter } from "@/redux/filter/selectors";
-import { addFilter, removeFilter } from "@/redux/filter/filterSlice";
+import {
+  addFilter,
+  clearFilter,
+  removeFilter,
+} from "@/redux/filter/filterSlice";
 
 const SearchBar: React.FC = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
@@ -82,7 +86,11 @@ const SearchBar: React.FC = () => {
           <p className={css.altText}>Додайте хоча б один елемент</p>
         )}
       </ul>
-      <button className={css.clearBtn} type="button">
+      <button
+        className={css.clearBtn}
+        type="button"
+        onClick={() => dispatch(clearFilter())}
+      >
         <TrashIcon className={css.clearIcon} />
       </button>
       {isAddModalOpen && onAddWordsModalRender()}

@@ -38,7 +38,7 @@ const FormulasList: React.FC<IProps> = ({}) => {
               alt="books image"
             />
             <p className={css.noRenderText}>
-              На жаль, у нас поки що немає формул з потрібними вам даними
+              Оберіть елементи для пошуку
             </p>
           </div>
         )}

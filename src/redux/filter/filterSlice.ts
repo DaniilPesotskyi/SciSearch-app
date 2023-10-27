@@ -17,12 +17,14 @@ const filterSlice = createSlice({
     addFilter: (state, action: PayloadAction<string>) => {
       state.filter.push(action.payload);
     },
-
     removeFilter: (state, action: PayloadAction<string>) => {
       state.filter = state.filter.filter((letter) => letter !== action.payload);
+    },
+    clearFilter: (state, action: PayloadAction) => {
+      state.filter = [];
     },
   },
 });
 
-export const { addFilter, removeFilter } = filterSlice.actions;
+export const { addFilter, removeFilter, clearFilter } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;
