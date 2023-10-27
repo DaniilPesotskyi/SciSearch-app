@@ -4,6 +4,8 @@ import css from "./FormulaCard.module.css";
 
 import clsx from "clsx";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectFilter } from "@/redux/filter/selectors";
 import { toast } from "react-toastify";
 
 import { getLetters } from "@/helpers";
@@ -14,6 +16,7 @@ interface IProps {
 }
 
 const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
+  const filters = useSelector(selectFilter);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [inputValues, setInputValues] = useState<{ [name: string]: string }>(
     {}
@@ -71,12 +74,25 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
     );
   };
 
+  const highlightLetters = (formula: string) => {
+    const letters = formula.split("");
+
+    const formatedFormula = letters.map((l, index) => {
+      if (filters.includes(l)) {
+        return <span key={index} style={{color: "red"}}>{l}</span>;
+      }
+      return <>{l}</>
+    });
+
+    return formatedFormula;
+  };
+
   return (
     <div className={clsx(css.wrap, isOpen && css.open)}>
       <div className={css.card}>
         <h2 className={css.name}>{name}</h2>
         <div className={css.formulaActionsWrap}>
-          <p className={css.formula}>{formula}</p>
+          <p className={css.formula}>{highlightLetters(formula)}</p>
           <div className={css.actionsBtns}>
             <button className={css.copyBtn}>
               <span className={css.copyText}>Копіювати</span>
