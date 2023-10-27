@@ -8,6 +8,8 @@ import { ToastContainer } from "react-toastify";
 
 import Header from "@/components/common/Header/Header";
 
+import { Providers } from "@/redux/Providers";
+
 const roboto = Roboto({
   weight: ["300", "400"],
   style: "normal",
@@ -31,12 +33,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="uk">
-      <body className={clsx(roboto.className, openSans.className)}>
-        <Header />
-        {children}
-        <ToastContainer position="top-center" />
-      </body>
-    </html>
+    <Providers>
+      <html lang="uk">
+        <body className={clsx(roboto.className, openSans.className)}>
+          <Header />
+          {children}
+          <ToastContainer position="top-center" />
+        </body>
+      </html>
+    </Providers>
   );
 }

@@ -2,22 +2,23 @@
 
 import css from "./SearchBar.module.css";
 
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import clsx from "clsx";
 
 import { getLetters } from "@/helpers";
+import { selectFilter } from "@/redux/filter/selectors";
+import { addFilter, removeFilter } from "@/redux/filter/filterSlice";
 
 const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
-  const [filters, setFilters] = useState<string[]>([]);
+
+  const filters = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
   const avalaibleLetters = getLetters(formulas).filter(
     (letter) => !filters.includes(letter)
   );
-
-  const onFilterDelete = (l: string) => {
-    setFilters(filters.filter((letter) => letter !== l));
-  };
 
   const onAddWordsModalRender = () => {
     return (
@@ -29,7 +30,7 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
                 <button
                   type="button"
                   className={css.filterBtn}
-                  onClick={() => setFilters([...filters, l])}
+                  onClick={() => dispatch(addFilter(l))}
                 >
                   {l}
                 </button>
@@ -60,7 +61,7 @@ const SearchBar: React.FC<{ formulas: string[] | string }> = ({ formulas }) => {
                 <button
                   type="button"
                   className={css.filterBtn}
-                  onClick={() => onFilterDelete(l)}
+                  onClick={() => dispatch(removeFilter(l))}
                 >
                   {l}
                 </button>
