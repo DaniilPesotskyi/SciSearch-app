@@ -100,7 +100,17 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
         <div className={css.formulaActionsWrap}>
           <p className={css.formula}>{highlightLetters(formula)}</p>
           <div className={css.actionsBtns}>
-            <button className={css.copyBtn}>
+            <button
+              className={css.copyBtn}
+              onClick={() => {
+                navigator.clipboard
+                  .writeText(formula)
+                  .then(() => {
+                    toast.success("Формула скопійована в буфер обміну");
+                  })
+                  .catch(() => {});
+              }}
+            >
               <span className={css.copyText}>Копіювати</span>
               <CopyIcon className={css.icon} />
             </button>
