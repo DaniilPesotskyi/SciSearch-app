@@ -9,6 +9,7 @@ import { selectFilter } from "@/redux/filter/selectors";
 import { toast } from "react-toastify";
 
 import { getLetters } from "@/helpers";
+import { solveWithFormula } from "@/helpers";
 
 interface IProps {
   name: string;
@@ -21,6 +22,7 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
   const [inputValues, setInputValues] = useState<{ [name: string]: string }>(
     {}
   );
+  const [result, setResult] = useState<number>(0);
 
   const symbols = getLetters(formula);
 
@@ -30,11 +32,11 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  const handleMath = () => {
+  const handleMath = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const isFilled = symbols.every((s) => inputValues[s]);
     if (isFilled) {
-      console.log("Values: ", inputValues);
-      console.log("Formula: ", formula);
+      setResult(solveWithFormula(inputValues, formula));
       return;
     }
     toast.error("Всі необхідні поля мають бути заповнені");
@@ -64,11 +66,11 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
           <button
             type="button"
             className={css.mathResultBtn}
-            onClick={handleMath}
+            onClick={(e) => handleMath(e)}
           >
             Рахувати
           </button>
-          <p className={css.mathResult}>Результат: 3453</p>
+          <p className={css.mathResult}>Результат: {result}</p>
         </div>
       </div>
     );
@@ -79,9 +81,13 @@ const FormulaCard: React.FC<IProps> = ({ name, formula }) => {
 
     const formatedFormula = letters.map((l, index) => {
       if (filters.includes(l)) {
-        return <span key={index} style={{color: "red"}}>{l}</span>;
+        return (
+          <span key={index} style={{ color: "red" }}>
+            {l}
+          </span>
+        );
       }
-      return <>{l}</>
+      return <>{l}</>;
     });
 
     return formatedFormula;
