@@ -10,7 +10,7 @@ export default function Home() {
       <Container>
         <p className={css.appTitle}>SciSearch</p>
         <Heading className={css.mainTitle}>
-          Інструмент для пошуку формул онлайн
+          Додаток для пошуку формул онлайн
         </Heading>
         <SubjectsList />
       </Container>

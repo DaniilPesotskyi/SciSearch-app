@@ -13,7 +13,7 @@ const Heading: React.FC<{ className: string; children: React.ReactNode }> = ({
       transition={{ duration: 0.2, ease: "easeInOut", delay: 0.1 }}
       animate={{ opacity: 1 }}
     >
-      За якими даними вам потрібно знайти формулу?
+      {children}
     </motion.h1>
   );
 };

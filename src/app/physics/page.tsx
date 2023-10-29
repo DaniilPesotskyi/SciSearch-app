@@ -1,12 +1,16 @@
 import css from "./page.module.css";
 
-import { motion } from "framer-motion";
+import { Metadata } from "next";
 
-import FormulaCard from "@/components/common/FormulaCard/FormulaCard";
 import Container from "@/components/common/Container/Container";
 import SearchBar from "@/components/common/SearcherBar/SearchBar";
 import FormulasList from "@/components/common/FormulasList/FormulasList";
 import Heading from "@/components/common/Heading/Heading";
+
+export const metadata: Metadata = {
+  title: "SciSearch | Фізика",
+  description: "Пошук формул з предмету фізика",
+};
 
 export default function PhysicsPage() {
   return (
