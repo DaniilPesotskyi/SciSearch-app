@@ -21,18 +21,6 @@ const FormulasList: React.FC<IProps> = ({}) => {
 
   const formulasToRender = filterFormulas(filters, formulas);
 
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   const item = {
     hidden: { x: 20, opacity: 0 },
     visible: {
@@ -42,9 +30,13 @@ const FormulasList: React.FC<IProps> = ({}) => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: 0.3 }}
+      animate={{ opacity: 1 }}
+    >
       <p className={css.qnt}>Було знайдено {formulasToRender.length} формул</p>
-      <motion.ul className={css.list} variants={container}>
+      <motion.ul className={css.list}>
         {formulasToRender.length > 0 ? (
           formulasToRender.map((f) => (
             <motion.li
@@ -68,7 +60,7 @@ const FormulasList: React.FC<IProps> = ({}) => {
           </div>
         )}
       </motion.ul>
-    </>
+    </motion.div>
   );
 };
 

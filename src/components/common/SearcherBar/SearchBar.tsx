@@ -40,8 +40,8 @@ const SearchBar: React.FC = () => {
       <motion.div
         className={css.addFilterWrap}
         initial={{ opacity: 0 }}
-        transition={{ duration: 0.1, ease: 'easeInOut' }}
-        animate={{opacity: 1}}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+        animate={{ opacity: 1 }}
       >
         <ul className={css.addFilterList}>
           {avalaibleLetters.length > 0 ? (
@@ -65,7 +65,12 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className={css.wrap}>
+    <motion.div
+      className={css.wrap}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: 0.2 }}
+      animate={{ opacity: 1 }}
+    >
       <button
         className={clsx(css.addBtn, isAddModalOpen && css.open)}
         type="button"
@@ -100,7 +105,7 @@ const SearchBar: React.FC = () => {
         <TrashIcon className={css.clearIcon} />
       </button>
       {isAddModalOpen && onAddWordsModalRender()}
-    </div>
+    </motion.div>
   );
 };
 
