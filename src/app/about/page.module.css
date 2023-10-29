@@ -1,0 +1,40 @@
+.heading {
+  margin-bottom: 25px;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.paragraph {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 480px) {
+  .appTitle {
+    font-size: 20px;
+  }
+
+  .mainTitle {
+    font-size: 34px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    margin-bottom: 35px;
+
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .heading {
+    margin-bottom: 65px;
+
+    font-size: 40px;
+  }
+}

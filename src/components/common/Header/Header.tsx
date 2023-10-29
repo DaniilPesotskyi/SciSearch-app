@@ -32,7 +32,7 @@ const Header: React.FC = () => {
         <nav className={css.nav}>
           <ul className={css.navList}>
             <li className={css.navItem}>
-              <Link href={"/"} className={css.navLink}>
+              <Link href={"/about"} className={css.navLink}>
                 Про SciSearch
               </Link>
             </li>
